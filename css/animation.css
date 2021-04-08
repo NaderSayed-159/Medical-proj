@@ -79,16 +79,8 @@
 }
 
 .content div:nth-of-type(1) .fadding-text>div:nth-of-type(4) {
-    animation: fadding-up 0.85s linear 1s forwards,
-        fadding-dn 1.1s ease-in 7s forwards,
-        fadding-up 0.85s linear 9s forwards,
-        fadding-dn 1.1s ease-in 14s forwards,
-        fadding-up 0.85s linear 16s forwards;
-    -webkit-animation: fadding-up 0.85s linear 1s forwards,
-        fadding-dn 1.1s ease-in 7s forwards,
-        fadding-up 0.85s linear 9s forwards,
-        fadding-dn 1.1s ease-in 14s forwards,
-        fadding-up 0.85s linear 16s forwards;
+    animation: fadding-up 0.85s linear 1s forwards, fadding-dn 1.1s ease-in 7s forwards, fadding-up 0.85s linear 9s forwards, fadding-dn 1.1s ease-in 14s forwards, fadding-up 0.85s linear 16s forwards;
+    -webkit-animation: fadding-up 0.85s linear 1s forwards, ;
 }
 
 .content div:nth-of-type(1) .fadding-text>div:nth-of-type(5),
