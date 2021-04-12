@@ -1043,7 +1043,8 @@ nav>button {
 .content>.on-app-book>.main-form>form>select {
     border: none;
     border-bottom: 1px solid #eee;
-    color: rgb(173, 173, 173);
+    color: black;
+    font-weight: bold;
     height: 30px;
     padding: 25px;
     transition: background-color 0.4s;
@@ -1053,36 +1054,39 @@ nav>button {
     -o-transition: background-color 0.4s;
 }
 
+.content>.on-app-book>.main-form>form>input[type="date"],
+.content>.on-app-book>.main-form>form>input[type="time"]{
+    color :rgb(173, 173, 173);
+}
+
+
+
 .content>.on-app-book>.main-form>form>select>option {
     font-size: 15px;
 }
 
-.content>div:nth-of-type(7)>div:nth-of-type(2)>form>input::placeholder,
-.content>div:nth-of-type(7)>div:nth-of-type(2)>form>textarea::placeholder {
+
+.content>.on-app-book>.main-form>form>*::placeholder {
     color: rgb(173, 173, 173);
 }
 
 
-.content>div:nth-of-type(7)>div:nth-of-type(2)>form>input:focus,
-.content>div:nth-of-type(7)>div:nth-of-type(2)>form>select:focus,
-.content>div:nth-of-type(7)>div:nth-of-type(2)>form>textarea:focus {
+.content>.on-app-book>.main-form>form>*:focus {
     outline: none;
 }
 
-.content>div:nth-of-type(7)>div:nth-of-type(2)>form>input:hover,
-.content>div:nth-of-type(7)>div:nth-of-type(2)>form>select:hover,
-.content>div:nth-of-type(7)>div:nth-of-type(2)>form>textarea:hover {
+.content>.on-app-book>.main-form>form>*:hover:not(input[name="submit"]) {
     background-color: #ECEEF8;
 }
 
 
-.content>div:nth-of-type(7)>div:nth-of-type(2)>form>textarea {
+.content>.on-app-book>.main-form>form>textarea {
     border: none;
     background-color: transparent;
     padding: 20px 30px;
 }
 
-.content>div:nth-of-type(7)>div:nth-of-type(2)>form>input[name="submit"] {
+.content>.on-app-book>.main-form>form>input[name="submit"] {
     background-color: #3853bc;
     color: white;
     cursor: pointer;
@@ -1100,14 +1104,45 @@ nav>button {
     -o-transition: background-color 0.4s;
 }
 
-.content>div:nth-of-type(7)>div:nth-of-type(2)>form>input[name="submit"]:hover {
+.content>.on-app-book>.main-form>form>input[name="submit"]:hover {
     background-color: #283B84;
 }
 
-.content>div:nth-of-type(8) .info-ps {
-    display: block;
+/* start of location */
+
+.content>.location .info-ps {
+
+    width: 350px;
     position: absolute;
+    left: 50px;
+    z-index: 1111;
+    height: 100%;
+    background-color: #3954BC;
+    font-size: 15px;
+    
 }
+
+.content>.location .info-ps span:nth-of-type(2){
+opacity: 0.5;
+margin-right: 5px;
+}
+.content>.location .info-ps span:nth-of-type(1){
+margin-right: 20px;
+}
+
+.content>.location .info-ps .info{
+height: 20%;
+display: flex;
+align-items: center;
+color: white;
+font-family: muli,sans-serif;
+font-weight: 200;
+font-style: normal;
+padding: 20px 40px;
+    border-bottom: rgb(250, 250, 250 , 0.5) 1px solid;
+line-height: 1.6;
+}
+
 
 .content>div:nth-of-type(8) {
     width: 100%;
