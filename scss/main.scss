@@ -4,6 +4,24 @@
     font-family: 'Work Sans', sans-serif;
 }
 
+$maincolor:#004ED7;
+
+@mixin transition($p, $d) {
+    transition: $p $d ease-in;
+    -webkit-transition: $p $d ease-in;
+    -moz-transition: $p $d ease-in;
+    -ms-transition: $p $d ease-in;
+    -o-transition: $p $d ease-in;
+}
+
+@mixin transition2($p, $d, $p2, $d2) {
+    transition: $p $d ease-in, $p2 $d2 ease-in;
+    -webkit-transition: $p $d ease-in, $p2 $d2 ease-in;
+    -moz-transition: $p $d ease-in, $p2 $d2 ease-in;
+    -ms-transition: $p $d ease-in, $p2 $d2 ease-in;
+    -o-transition: $p $d ease-in, $p2 $d2 ease-in;
+}
+
 body {
     .noti-btn {
         position: fixed;
@@ -51,7 +69,7 @@ header {
         width: 20%;
 
         i {
-            color: #004ED7;
+            color: $maincolor;
             font-size: 1.8rem
         }
     }
@@ -61,7 +79,7 @@ header {
 
         a {
             i {
-                color: #004ED7;
+                color: $maincolor;
                 font-size: 2.5rem;
             }
         }
@@ -107,23 +125,21 @@ header {
             -moz-border-radius: 5px;
             -ms-border-radius: 5px;
             -o-border-radius: 5px;
-            color: #004ED7;
+            color: $maincolor;
             font-weight: 300;
             font-size: 15px;
             text-align: center;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            transition: background-color 0.2s ease-in, color 0.2s ease-in;
-            -webkit-transition: background-color 0.2s ease-in, color 0.2s ease-in;
-            -moz-transition: background-color 0.2s ease-in, color 0.2s ease-in;
-            -ms-transition: background-color 0.2s ease-in, color 0.2s ease-in;
-            -o-transition: background-color 0.2s ease-in, color 0.2s ease-in;
+            @include transition2(background-color, 0.2s, color, 0.2s);
+
+
 
             &:hover {
-                background-color: #004ED7;
+                background-color: $maincolor;
                 color: white;
-                border-color: #004ED7;
+                border-color: $maincolor;
 
                 i {
                     color: white;
@@ -134,13 +150,9 @@ header {
                 position: absolute;
                 right: 15px;
                 top: 42%;
-                color: #004ED7;
+                color: $maincolor;
                 font-size: 0.6rem;
-                transition: color 0.2s ease-in;
-                -webkit-transition: color 0.2s ease-in;
-                -moz-transition: color 0.2s ease-in;
-                -ms-transition: color 0.2s ease-in;
-                -o-transition: color 0.2s ease-in;
+                @include transition(color, 0.2s);
             }
         }
     }
@@ -166,19 +178,11 @@ nav {
         transform-origin: top;
         height: 60px;
         width: 90px;
-        transition: transform 0.5s, opacity 0.5s;
-        -webkit-transition: transform 0.5s, opacity 0.5s;
-        -moz-transition: transform 0.5s, opacity 0.5s;
-        -ms-transition: transform 0.5s, opacity 0.5s;
-        -o-transition: transform 0.5s, opacity 0.5s;
+        @include transition2 (transform, 0.5s, opacity, 0.5s);
         margin-right: 20px;
 
         span {
-            transition: transform 0.3s, opacity 0.3s;
-            -webkit-transition: transform 0.3s, opacity 0.3s;
-            -moz-transition: transform 0.3s, opacity 0.3s;
-            -ms-transition: transform 0.3s, opacity 0.3s;
-            -o-transition: transform 0.3s, opacity 0.3s;
+            @include transition2 (transform, 0.3s, opacity, 0.3s);
         }
 
         span:nth-of-type(1) {
@@ -187,7 +191,7 @@ nav {
 
         span:nth-of-type(2) {
             opacity: 0;
-            color: #004ED7;
+            color: $maincolor;
         }
 
         &:hover {
@@ -273,11 +277,7 @@ nav {
             background-color: #DADBDD;
             opacity: 0;
             top: 50%;
-            transition: opacity 0.5s;
-            -webkit-transition: opacity 0.5s;
-            -moz-transition: opacity 0.5s;
-            -ms-transition: opacity 0.5s;
-            -o-transition: opacity 0.5s;
+            @include transition(opacity, 0.5s);
             transform-style: preserve-3d;
             transform: translateY(-50%);
             -webkit-transform: translateY(-50%);
@@ -295,14 +295,10 @@ nav {
                 left: 0;
                 top: 0;
                 background-image: url(../imgs/slide2.ico);
-                border-radius: 50%;
                 width: 100%;
                 height: 100%;
-                transition: transform 0.3s;
-                -webkit-transition: transform 0.3s;
-                -moz-transition: transform 0.3s;
-                -ms-transition: transform 0.3s;
-                -o-transition: transform 0.3s;
+                @include transition (transform, 0.3s);
+                border-radius: 50%;
                 -webkit-border-radius: 50%;
                 -moz-border-radius: 50%;
                 -ms-border-radius: 50%;
@@ -423,11 +419,7 @@ nav {
                     -ms-border-radius: 5px;
                     -o-border-radius: 5px;
                     position: relative;
-                    transition: width 0.5s;
-                    -webkit-transition: width 0.5s;
-                    -moz-transition: width 0.5s;
-                    -ms-transition: width 0.5s;
-                    -o-transition: width 0.5s;
+                    @include transition (width, 0.5s);
 
                     &:hover {
                         width: 200px;
@@ -442,11 +434,7 @@ nav {
                         right: 25px;
                         top: (55px/2) - (11/2);
                         opacity: 0;
-                        transition: opacity 0.5s;
-                        -webkit-transition: opacity 0.5s;
-                        -moz-transition: opacity 0.5s;
-                        -ms-transition: opacity 0.5s;
-                        -o-transition: opacity 0.5s;
+                        @include transition (opacity, 0.5s);
                         font-size: 0.7rem;
                         color: white
                     }
@@ -476,20 +464,16 @@ nav {
             letter-spacing: 0.8px;
             justify-content: space-evenly;
             line-height: 30px;
-            transition: background-color 0.4s;
-            -webkit-transition: background-color 0.4s;
-            -moz-transition: background-color 0.4s;
-            -ms-transition: background-color 0.4s;
-            -o-transition: background-color 0.4s;
+            @include transition(background-color, 0.4s);
 
             // hover of services card
             &:hover {
                 background-color: white;
-                color: #004ED7;
+                color: $maincolor;
                 box-shadow: 0 0px 40px 0px rgba($color: #000000, $alpha: 0.4);
 
                 i {
-                    color: #004ED7;
+                    color: $maincolor;
                 }
 
                 p {
@@ -552,7 +536,7 @@ nav {
             i {
                 margin-left: 10px;
                 font-size: 4em;
-                color: #004ED7;
+                color: $maincolor;
             }
 
             p {
@@ -573,7 +557,7 @@ nav {
                 i {
                     font-size: .75em;
                     margin-left: 10px;
-                    color: #004ED7;
+                    color: $maincolor;
                 }
             }
 
@@ -618,12 +602,7 @@ nav {
                     -o-border-radius: 5px;
                     display: flex;
                     align-items: center;
-                    transition: background-color 0.5s;
-                    -webkit-transition: background-color 0.5s;
-                    -moz-transition: background-color 0.5s;
-                    -ms-transition: background-color 0.5s;
-                    -o-transition: background-color 0.5s;
-
+                    @include transition (background-color, 0.5s);
 
                     i {
                         margin-left: 10px;
@@ -723,11 +702,7 @@ nav {
                 color: white;
                 width: 270px;
                 padding-left: 10px;
-                transition: background-color 0.5s;
-                -webkit-transition: background-color 0.5s;
-                -moz-transition: background-color 0.5s;
-                -ms-transition: background-color 0.5s;
-                -o-transition: background-color 0.5s;
+                @include transition (background-color, 0.5s);
 
                 ul {
                     list-style: none;
@@ -767,11 +742,7 @@ nav {
                     color: white;
                     border: 1px solid rgb(150, 147, 147);
                     margin-left: 40px;
-                    transition: background-color 0.5s;
-                    -webkit-transition: background-color 0.5s;
-                    -moz-transition: background-color 0.5s;
-                    -ms-transition: background-color 0.5s;
-                    -o-transition: background-color 0.5s;
+                    @include transition (background-color, 0.3s);
 
                     // link button hover
                     &:hover {
@@ -786,7 +757,7 @@ nav {
 
                 // list hover
                 &:hover {
-                    box-shadow: 0 0 40px 0 rgba($color: #000000, $alpha: 0.25);
+                    box-shadow: 0 0 40px 0 rgba($color: #000000, $alpha: 0.24);
                     background-color: white;
 
                     a {
@@ -797,8 +768,14 @@ nav {
                         }
                     }
 
+                    h2 {
+                        color: #0065b3;
+                    }
+
                     ul {
                         li {
+                            color: #283B84;
+
                             i {
                                 color: #0065b3 !important;
                             }
@@ -875,7 +852,7 @@ nav {
             }
 
             p {
-                color: #004ED7;
+                color: $maincolor;
                 padding: 20px 20px 0;
             }
         }
@@ -966,7 +943,7 @@ nav {
             text-align: center;
 
             a {
-                color: #004ED7;
+                color: $maincolor;
                 background-color: white;
                 padding: 15px 35px;
                 font-size: 16px;
@@ -975,11 +952,7 @@ nav {
                 -moz-border-radius: 3px;
                 -ms-border-radius: 3px;
                 -o-border-radius: 3px;
-                transition: background-color 0.5s;
-                -webkit-transition: background-color 0.5s;
-                -moz-transition: background-color 0.5s;
-                -ms-transition: background-color 0.5s;
-                -o-transition: background-color 0.5s;
+                @include transition (background-color, 0.5s);
                 margin-left: 150px;
 
                 &:hover {
@@ -1124,7 +1097,7 @@ nav {
 
                     i {
                         font-size: 1rem;
-                        color: #004ED7;
+                        color: $maincolor;
                     }
                 }
             }
@@ -1153,11 +1126,7 @@ nav {
                     font-weight: bold;
                     height: 30px;
                     padding: 25px;
-                    transition: background-color 0.4s;
-                    -webkit-transition: background-color 0.4s;
-                    -moz-transition: background-color 0.4s;
-                    -ms-transition: background-color 0.4s;
-                    -o-transition: background-color 0.4s;
+                    @include transition (background-color, 0.4s);
 
                     option {
                         font-size: 15px;
@@ -1193,11 +1162,7 @@ nav {
                     -ms-border-radius: 0 0 5px 5px;
                     -o-border-radius: 0 0 5px 5px;
                     padding: 10px;
-                    transition: background-color 0.4s;
-                    -webkit-transition: background-color 0.4s;
-                    -moz-transition: background-color 0.4s;
-                    -ms-transition: background-color 0.4s;
-                    -o-transition: background-color 0.4s;
+                    @include transition (background-color, 0.4s);
 
                     &:hover {
                         background-color: #283B84;
@@ -1228,16 +1193,12 @@ nav {
             height: 100%;
             z-index: 1;
             opacity: 0.5;
-            background-color: rgb(0, 0, 0);
-            transition: width 1s;
-            -webkit-transition: width 1s;
-            -moz-transition: width 1s;
-            -ms-transition: width 1s;
-            -o-transition: width 1s;
+            background-color: rgba($color: #000000, $alpha: 0.5);
+            @include transition (width, 1s);
+        }
 
-            &::before {
-                width: 0;
-            }
+        &:hover::before {
+            width: 0;
         }
 
         div {
@@ -1343,7 +1304,7 @@ nav {
                         margin-left: 10px;
 
                         i {
-                            color: #004ED7;
+                            color: $maincolor;
                             font-size: 2rem;
                             margin-right: 10px;
 
@@ -1388,11 +1349,7 @@ nav {
                         -moz-border-radius: 50%;
                         -ms-border-radius: 50%;
                         -o-border-radius: 50%;
-                        transition: background-color 0.5s;
-                        -webkit-transition: background-color 0.5s;
-                        -moz-transition: background-color 0.5s;
-                        -ms-transition: background-color 0.5s;
-                        -o-transition: background-color 0.5s;
+                        @include transition (background-color, 0.5s);
                     }
 
                     p {
@@ -1519,11 +1476,7 @@ footer {
             -ms-border-radius: 5px;
             -o-border-radius: 5px;
             margin-right: 5px;
-            transition: background-color 0.5s;
-            -webkit-transition: background-color 0.5s;
-            -moz-transition: background-color 0.5s;
-            -ms-transition: background-color 0.5s;
-            -o-transition: background-color 0.5s;
+            @include transition (background-color, 0.5s);
 
             &:hover {
                 i {
