@@ -1,27 +1,3 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    font-family: 'Work Sans', sans-serif;
-}
-
-$maincolor:#004ED7;
-
-@mixin transition($p, $d) {
-    transition: $p $d ease-in;
-    -webkit-transition: $p $d ease-in;
-    -moz-transition: $p $d ease-in;
-    -ms-transition: $p $d ease-in;
-    -o-transition: $p $d ease-in;
-}
-
-@mixin transition2($p, $d, $p2, $d2) {
-    transition: $p $d ease-in, $p2 $d2 ease-in;
-    -webkit-transition: $p $d ease-in, $p2 $d2 ease-in;
-    -moz-transition: $p $d ease-in, $p2 $d2 ease-in;
-    -ms-transition: $p $d ease-in, $p2 $d2 ease-in;
-    -o-transition: $p $d ease-in, $p2 $d2 ease-in;
-}
-
 body {
     .noti-btn {
         position: fixed;
@@ -35,20 +11,14 @@ body {
         z-index: 9999;
         background-color: #DC3326;
         padding: 10px;
-        transform: rotate(-90deg);
-        -webkit-transform: rotate(-90deg);
-        -moz-transform: rotate(-90deg);
-        -ms-transform: rotate(-90deg);
-        -o-transform: rotate(-90deg);
+        @include transform(rotate(-90deg));
         border-radius: 0 0 5px 5px;
-        -webkit-border-radius: 0 0 5px 5px;
-        -moz-border-radius: 0 0 5px 5px;
-        -ms-border-radius: 0 0 5px 5px;
-        -o-border-radius: 0 0 5px 5px;
         margin-left: -31px;
         cursor: pointer;
+
     }
 }
+
 
 /* header start */
 
@@ -56,12 +26,12 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: #130947;
+    color: $logo-span-color;
     align-content: center;
     width: 100%;
-    padding: 15px 10px 11px;
+    padding: 15px 10px 11px 10px;
     font-size: 14px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid $border-maincolor;
 
     .parent {
         display: flex;
@@ -88,7 +58,7 @@ header {
             a {
                 font-size: xx-large;
                 font-weight: 600;
-                color: #130947;
+                color: $logo-span-color;
                 margin: 10px;
             }
         }
@@ -119,12 +89,8 @@ header {
             position: relative;
             padding: 15px 30px;
             background-color: transparent;
-            border: 1px solid #eee;
+            border: 1px solid $border-maincolor;
             border-radius: 5px;
-            -webkit-border-radius: 5px;
-            -moz-border-radius: 5px;
-            -ms-border-radius: 5px;
-            -o-border-radius: 5px;
             color: $maincolor;
             font-weight: 300;
             font-size: 15px;
@@ -132,7 +98,7 @@ header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            @include transition2(background-color, 0.2s, color, 0.2s);
+            @include transition2(background-color 0.2s, color 0.2s);
 
 
 
@@ -152,7 +118,7 @@ header {
                 top: 42%;
                 color: $maincolor;
                 font-size: 0.6rem;
-                @include transition(color, 0.2s);
+                @include transition(color 0.2s);
             }
         }
     }
@@ -171,18 +137,18 @@ nav {
 
     a {
         font-size: small;
-        color: #130947;
+        color: $logo-span-color;
         font-weight: bold;
         display: flex;
         position: relative;
         transform-origin: top;
         height: 60px;
         width: 90px;
-        @include transition2 (transform, 0.5s, opacity, 0.5s);
         margin-right: 20px;
+        @include transition2 (transform 0.5s, opacity 0.5s);
 
         span {
-            @include transition2 (transform, 0.3s, opacity, 0.3s);
+            @include transition2 (transform 0.3s, opacity 0.3s);
         }
 
         span:nth-of-type(1) {
@@ -197,20 +163,12 @@ nav {
         &:hover {
             span:nth-of-type(1) {
                 opacity: 0;
-                transform: translateY(-20px);
-                -webkit-transform: translateY(-20px);
-                -moz-transform: translateY(-20px);
-                -ms-transform: translateY(-20px);
-                -o-transform: translateY(-20px);
+                @include transform (translateY(-20px));
             }
 
             span:nth-of-type(2) {
                 opacity: 1;
-                transform: translateY(-15px);
-                -webkit-transform: translateY(-15px);
-                -moz-transform: translateY(-15px);
-                -ms-transform: translateY(-15px);
-                -o-transform: translateY(-15px);
+                @include transform(translateY(-15px));
             }
         }
     }
@@ -245,23 +203,15 @@ nav {
 
         div {
             img:nth-of-type(1) {
-                transform: scale(1.1);
-                -webkit-transform: scale(1.1);
-                -moz-transform: scale(1.1);
-                -o-transform: scale(1.1);
-                -ms-transform: scale(1.1);
+                @include transform (scale(1.1));
                 opacity: 0;
             }
 
             img:nth-of-type(2) {
-                transform: scale(1.09);
+                @include transform (scale(1.09));
                 position: absolute;
                 top: 0%;
                 right: 0;
-                -webkit-transform: scale(1.09);
-                -moz-transform: scale(1.09);
-                -ms-transform: scale(1.09);
-                -o-transform: scale(1.09);
             }
         }
 
@@ -270,20 +220,12 @@ nav {
             width: 70px;
             height: 70px;
             border-radius: 50%;
-            -webkit-border-radius: 50%;
-            -moz-border-radius: 50%;
-            -ms-border-radius: 50%;
-            -o-border-radius: 50%;
             background-color: #DADBDD;
             opacity: 0;
             top: 50%;
-            @include transition(opacity, 0.5s);
+            @include transition(opacity 0.5s);
             transform-style: preserve-3d;
-            transform: translateY(-50%);
-            -webkit-transform: translateY(-50%);
-            -moz-transform: translateY(-50%);
-            -ms-transform: translateY(-50%);
-            -o-transform: translateY(-50%);
+            @include transform (translateY(-50%));
             cursor: pointer;
             z-index: 3;
 
@@ -297,28 +239,20 @@ nav {
                 background-image: url(../imgs/slide2.ico);
                 width: 100%;
                 height: 100%;
-                @include transition (transform, 0.3s);
+                @include transition (transform 0.3s);
                 border-radius: 50%;
                 -webkit-border-radius: 50%;
                 -moz-border-radius: 50%;
                 -ms-border-radius: 50%;
                 -o-border-radius: 50%;
                 z-index: -1;
-                transform: scale(0);
-                -webkit-transform: scale(0);
-                -moz-transform: scale(0);
-                -ms-transform: scale(0);
-                -o-transform: scale(0);
+                @include transform (scale(0));
                 transform-origin: left center;
             }
 
             &:hover {
                 &::after {
-                    transform: scale(1);
-                    -webkit-transform: scale(1);
-                    -moz-transform: scale(1);
-                    -ms-transform: scale(1);
-                    -o-transform: scale(1);
+                    @include transform (scale(1));
                 }
             }
         }
@@ -362,18 +296,18 @@ nav {
 
             .fst {
                 grid-column: span 2;
-                color: #130947;
+                color: $logo-span-color;
                 opacity: 0;
             }
 
             .trd {
-                color: #3853BC;
+                color: $secondercolor;
                 opacity: 0;
             }
 
             .fth {
                 grid-column: span 3;
-                color: #3853BC;
+                color: $secondercolor;
                 opacity: 0;
             }
 
@@ -404,7 +338,7 @@ nav {
                 opacity: 0;
 
                 a {
-                    background-color: #3853BC;
+                    background-color: $secondercolor;
                     padding: 20px;
                     display: flex;
                     align-items: center;
@@ -419,7 +353,7 @@ nav {
                     -ms-border-radius: 5px;
                     -o-border-radius: 5px;
                     position: relative;
-                    @include transition (width, 0.5s);
+                    @include transition (width 0.5s);
 
                     &:hover {
                         width: 200px;
@@ -434,7 +368,7 @@ nav {
                         right: 25px;
                         top: (55px/2) - (11/2);
                         opacity: 0;
-                        @include transition (opacity, 0.5s);
+                        @include transition (opacity 0.5s);
                         font-size: 0.7rem;
                         color: white
                     }
@@ -464,7 +398,7 @@ nav {
             letter-spacing: 0.8px;
             justify-content: space-evenly;
             line-height: 30px;
-            @include transition(background-color, 0.4s);
+            @include transition(background-color 0.4s);
 
             // hover of services card
             &:hover {
@@ -477,7 +411,7 @@ nav {
                 }
 
                 p {
-                    color: #757679;
+                    color: $paragraph-maincolor;
                 }
 
             }
@@ -502,7 +436,7 @@ nav {
         }
 
         div:nth-of-type(3) {
-            background-color: #3853BC;
+            background-color: $secondercolor;
         }
 
         div:nth-of-type(4) {
@@ -527,10 +461,10 @@ nav {
             position: relative;
             padding: 0px 30px 65px;
             justify-content: space-evenly;
-            border: 1px solid #eee;
+            border: 1px solid $border-maincolor;
             text-align: center;
             line-height: 30px;
-            color: #130947;
+            color: $logo-span-color;
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
             i {
@@ -540,7 +474,7 @@ nav {
             }
 
             p {
-                color: #757679;
+                color: $paragraph-maincolor;
                 font-size: 16px;
                 margin-top: -20px;
             }
@@ -602,7 +536,7 @@ nav {
                     -o-border-radius: 5px;
                     display: flex;
                     align-items: center;
-                    @include transition (background-color, 0.5s);
+                    @include transition (background-color 0.5s);
 
                     i {
                         margin-left: 10px;
@@ -655,7 +589,7 @@ nav {
                 padding: 10px;
                 font-size: 40px;
                 color: #140A48;
-                border-bottom: 1px solid #ddd;
+                border-bottom: 1px solid $border-maincolor;
             }
         }
 
@@ -684,25 +618,25 @@ nav {
 
                 h2 {
                     font-size: 18px;
-                    color: #130947;
+                    color: $logo-span-color;
                     padding-top: 20px;
                 }
 
                 p {
-                    color: #757679;
+                    color: $paragraph-maincolor;
                     line-height: 30px;
                     font-size: 15px;
                     padding: 10px 0;
-                    border-bottom: 1px solid rgba($color: #000000, $alpha: 0.15);
+                    border-bottom: 1px solid $border-maincolor;
                 }
             }
 
             .serv-lst {
-                background-color: #3853BC;
+                background-color: $secondercolor;
                 color: white;
                 width: 270px;
                 padding-left: 10px;
-                @include transition (background-color, 0.5s);
+                @include transition (background-color 0.5s);
 
                 ul {
                     list-style: none;
@@ -742,7 +676,7 @@ nav {
                     color: white;
                     border: 1px solid rgb(150, 147, 147);
                     margin-left: 40px;
-                    @include transition (background-color, 0.3s);
+                    @include transition (background-color 0.3s);
 
                     // link button hover
                     &:hover {
@@ -760,14 +694,8 @@ nav {
                     box-shadow: 0 0 40px 0 rgba($color: #000000, $alpha: 0.24);
                     background-color: white;
 
-                    a {
-                        color: #0065b3;
-
-                        i {
-                            color: #0065b3;
-                        }
-                    }
-
+                    a,
+                    i,
                     h2 {
                         color: #0065b3;
                     }
@@ -775,10 +703,6 @@ nav {
                     ul {
                         li {
                             color: #283B84;
-
-                            i {
-                                color: #0065b3 !important;
-                            }
                         }
                     }
                 }
@@ -837,7 +761,7 @@ nav {
 
                 span {
                     color: white;
-                    background-color: #130947;
+                    background-color: $logo-span-color;
                     border-radius: 50%;
                     display: inline-block;
                     width: 40px;
@@ -882,7 +806,7 @@ nav {
                 background-color: #F1F4F7;
                 padding: 30px;
                 line-height: 30px;
-                color: #757679;
+                color: $paragraph-maincolor;
                 position: relative;
 
                 &::before {
@@ -902,10 +826,6 @@ nav {
                 img {
                     width: 60px;
                     border-radius: 50%;
-                    -webkit-border-radius: 50%;
-                    -moz-border-radius: 50%;
-                    -ms-border-radius: 50%;
-                    -o-border-radius: 50%;
                 }
 
                 div {
@@ -948,11 +868,7 @@ nav {
                 padding: 15px 35px;
                 font-size: 16px;
                 border-radius: 3px;
-                -webkit-border-radius: 3px;
-                -moz-border-radius: 3px;
-                -ms-border-radius: 3px;
-                -o-border-radius: 3px;
-                @include transition (background-color, 0.5s);
+                @include transition (background-color 0.5s);
                 margin-left: 150px;
 
                 &:hover {
@@ -968,7 +884,6 @@ nav {
             width: 60%;
             height: fit-content;
         }
-
     }
 
     /* end of appointment big title */
@@ -989,10 +904,6 @@ nav {
                 height: 334px;
                 position: relative;
                 border-radius: 50%;
-                -webkit-border-radius: 50%;
-                -moz-border-radius: 50%;
-                -ms-border-radius: 50%;
-                -o-border-radius: 50%;
                 overflow: hidden;
 
                 &::before {
@@ -1005,10 +916,6 @@ nav {
                     z-index: 1111;
                     box-shadow: inset 0px 0 40px 50px rgb(255, 255, 255);
                     border-radius: 50%;
-                    -webkit-border-radius: 50%;
-                    -moz-border-radius: 50%;
-                    -ms-border-radius: 50%;
-                    -o-border-radius: 50%;
                 }
 
                 img {
@@ -1016,10 +923,6 @@ nav {
                     height: 320px;
                     position: relative;
                     border-radius: 50%;
-                    -webkit-border-radius: 50%;
-                    -moz-border-radius: 50%;
-                    -ms-border-radius: 50%;
-                    -o-border-radius: 50%;
                 }
             }
 
@@ -1039,10 +942,6 @@ nav {
                         align-self: flex-start;
                         background-color: #ECEEF8;
                         border-radius: 50%;
-                        -webkit-border-radius: 50%;
-                        -moz-border-radius: 50%;
-                        -ms-border-radius: 50%;
-                        -o-border-radius: 50%;
                     }
 
                     div:nth-of-type(2) {
@@ -1087,7 +986,7 @@ nav {
                 padding: 30px;
                 line-height: 30px;
                 font-size: 16px;
-                color: #979fad;
+                color: $paragraph-maincolor;
 
                 span {
                     margin: 0 3px;
@@ -1121,12 +1020,12 @@ nav {
 
                 select {
                     border: none;
-                    border-bottom: 1px solid #eee;
+                    border-bottom: 1px solid $border-maincolor;
                     color: black;
                     font-weight: bold;
                     height: 30px;
                     padding: 25px;
-                    @include transition (background-color, 0.4s);
+                    @include transition (background-color 0.4s);
 
                     option {
                         font-size: 15px;
@@ -1152,17 +1051,13 @@ nav {
                 }
 
                 input[name="submit"] {
-                    background-color: #3853bc;
+                    background-color: $secondercolor;
                     color: white;
                     cursor: pointer;
                     height: 60px;
                     border-radius: 0 0 5px 5px;
-                    -webkit-border-radius: 0 0 5px 5px;
-                    -moz-border-radius: 0 0 5px 5px;
-                    -ms-border-radius: 0 0 5px 5px;
-                    -o-border-radius: 0 0 5px 5px;
                     padding: 10px;
-                    @include transition (background-color, 0.4s);
+                    @include transition (background-color 0.4s);
 
                     &:hover {
                         background-color: #283B84;
@@ -1194,7 +1089,7 @@ nav {
             z-index: 1;
             opacity: 0.5;
             background-color: rgba($color: #000000, $alpha: 0.5);
-            @include transition (width, 1s);
+            @include transition (width 1s);
         }
 
         &:hover::before {
@@ -1235,7 +1130,7 @@ nav {
                 font-weight: 200;
                 font-style: normal;
                 padding: 20px 40px;
-                border-bottom: rgba(250, 250, 250, 0.2) 1px solid;
+                border-bottom: $border-maincolor 1px solid;
                 line-height: 1.6;
 
                 i {
@@ -1254,7 +1149,7 @@ nav {
                 color: white;
                 padding: 20px;
                 line-height: 1.6;
-                border-bottom: rgba(250, 250, 250, 0.2) 1px solid;
+                border-bottom: $border-maincolor 1px solid;
             }
 
             .social-info {
@@ -1297,7 +1192,7 @@ nav {
                     a {
                         font-size: x-large;
                         font-weight: 600;
-                        color: #130947;
+                        color: $logo-span-color;
                         margin: 15px;
                         height: fit-content;
                         text-decoration: none;
@@ -1316,7 +1211,7 @@ nav {
                 p {
                     padding: 20px 0;
                     line-height: 30px;
-                    color: #808792;
+                    color: $paragraph-maincolor;
                     height: fit-content;
                 }
             }
@@ -1332,7 +1227,7 @@ nav {
 
                     &:hover {
                         div {
-                            background-color: #3853BC;
+                            background-color: $secondercolor;
 
                             i {
                                 color: white;
@@ -1345,22 +1240,18 @@ nav {
                         height: 40px;
                         border-radius: 50%;
                         background-color: #eceef8;
-                        -webkit-border-radius: 50%;
-                        -moz-border-radius: 50%;
-                        -ms-border-radius: 50%;
-                        -o-border-radius: 50%;
-                        @include transition (background-color, 0.5s);
+                        @include transition (background-color 0.5s);
                     }
 
                     p {
                         margin-left: 10px;
                         font-size: 15px;
-                        color: #808794;
+                        color: $paragraph-maincolor;
                     }
 
                     i {
                         font-size: 0.7rem;
-                        color: #3853BC;
+                        color: $secondercolor;
                     }
                 }
             }
@@ -1439,10 +1330,6 @@ footer {
         z-index: 1;
         background-color: white;
         border-radius: 50%;
-        -webkit-border-radius: 50%;
-        -moz-border-radius: 50%;
-        -ms-border-radius: 50%;
-        -o-border-radius: 50%;
     }
 
     .footer-child {
@@ -1454,7 +1341,7 @@ footer {
     }
 
     .copyrights {
-        color: #808794;
+        color: $paragraph-maincolor;
         font-size: 15px;
         margin-left: 20px;
 
@@ -1471,12 +1358,8 @@ footer {
             width: 40px;
             height: 40px;
             border-radius: 5px;
-            -webkit-border-radius: 5px;
-            -moz-border-radius: 5px;
-            -ms-border-radius: 5px;
-            -o-border-radius: 5px;
             margin-right: 5px;
-            @include transition (background-color, 0.5s);
+            @include transition (background-color 0.5s);
 
             &:hover {
                 i {

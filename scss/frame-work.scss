@@ -22,3 +22,43 @@
 * button:focus {
     outline: none;
 }
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Work Sans', sans-serif;
+}
+
+$maincolor:#004ED7;
+
+$secondercolor:#3853BC;
+
+$logo-span-color: #130947;
+
+$paragraph-maincolor: #757679;
+
+$border-maincolor: #eee;
+
+@mixin transition($values) {
+    transition: $values ease-in;
+    -webkit-transition: $values ease-in;
+    -moz-transition: $values ease-in;
+    -ms-transition: $values ease-in;
+    -o-transition: $values ease-in;
+}
+
+@mixin transition2($values1, $values2) {
+    transition: $values1 ease-in, $values2 ease-in;
+    -webkit-transition: $values1 ease-in, $values2 ease-in;
+    -moz-transition: $values1 ease-in, $values2 ease-in;
+    -ms-transition: $values1 ease-in, $values2 ease-in;
+    -o-transition: $values1 ease-in, $values2 ease-in;
+}
+
+@mixin transform($values3) {
+    transform: $values3;
+    -webkit-transform: $values3;
+    -moz-transform: $values3;
+    -ms-transform: $values3;
+    -o-transform: $values3;
+}
